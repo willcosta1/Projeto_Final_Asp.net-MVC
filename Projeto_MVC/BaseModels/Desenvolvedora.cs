@@ -16,6 +16,7 @@ namespace BaseModels
         public string Nome { get; set; }
         [Required(ErrorMessage = "*")]
         [MaxLength(25, ErrorMessage = "Tamanho máximo de caracteres é 25!")]
+        [Display(Name ="País")]
         public string Pais { get; set; }
         public bool Ativo { get; set; }
     }

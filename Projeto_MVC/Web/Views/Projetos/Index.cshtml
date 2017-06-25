@@ -1,24 +1,25 @@
 ﻿@model IEnumerable<BaseModels.Projeto>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Projetos";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 @if (TempData["Mensagem"] != null)
 {
-    <p class="alert-info">@TempData["Mensagem"]</p>
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Feito!</strong> @TempData["Mensagem"]
+    </div>
 }
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model._Desenvolvedora.Nome)
+            Desenvolvedora
         </th>
         <th>
-            @Html.DisplayNameFor(model => model._Jogo.Nome)
+            Jogo
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
@@ -50,11 +51,14 @@
             @Html.DisplayFor(modelItem => item.Ativo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProjetoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProjetoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProjetoID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ProjetoID }) |
+            @Html.ActionLink("Detailhes", "Details", new { id=item.ProjetoID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ProjetoID })
         </td>
     </tr>
 }
 
 </table>
+<p>
+    @Html.ActionLink("Criar novo", "Create",null,new { @class="btn btn-primary"})
+</p>

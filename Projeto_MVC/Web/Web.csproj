@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201706251430565_initial.Designer.cs">
       <DependentUpon>201706251430565_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706251510561_acentoP.cs" />
+    <Compile Include="Migrations\201706251510561_acentoP.Designer.cs">
+      <DependentUpon>201706251510561_acentoP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -291,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706251430565_initial.resx">
       <DependentUpon>201706251430565_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706251510561_acentoP.resx">
+      <DependentUpon>201706251510561_acentoP.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
