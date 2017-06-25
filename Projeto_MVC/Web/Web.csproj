@@ -169,11 +169,23 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\DesenvolvedorasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JogosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProjetosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706251418100_InitialCreate.cs" />
+    <Compile Include="Migrations\201706251418100_InitialCreate.Designer.cs">
+      <DependentUpon>201706251418100_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706251430565_initial.cs" />
+    <Compile Include="Migrations\201706251430565_initial.Designer.cs">
+      <DependentUpon>201706251430565_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -240,6 +252,21 @@
     <Content Include="Views\Categorias\Details.cshtml" />
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Desenvolvedoras\Create.cshtml" />
+    <Content Include="Views\Desenvolvedoras\Delete.cshtml" />
+    <Content Include="Views\Desenvolvedoras\Details.cshtml" />
+    <Content Include="Views\Desenvolvedoras\Edit.cshtml" />
+    <Content Include="Views\Desenvolvedoras\Index.cshtml" />
+    <Content Include="Views\Jogos\Create.cshtml" />
+    <Content Include="Views\Jogos\Delete.cshtml" />
+    <Content Include="Views\Jogos\Details.cshtml" />
+    <Content Include="Views\Jogos\Edit.cshtml" />
+    <Content Include="Views\Jogos\Index.cshtml" />
+    <Content Include="Views\Projetos\Create.cshtml" />
+    <Content Include="Views\Projetos\Delete.cshtml" />
+    <Content Include="Views\Projetos\Details.cshtml" />
+    <Content Include="Views\Projetos\Edit.cshtml" />
+    <Content Include="Views\Projetos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +284,14 @@
       <Project>{e7df24db-08dd-4f6b-820e-774ba09491a1}</Project>
       <Name>BaseModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706251418100_InitialCreate.resx">
+      <DependentUpon>201706251418100_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706251430565_initial.resx">
+      <DependentUpon>201706251430565_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

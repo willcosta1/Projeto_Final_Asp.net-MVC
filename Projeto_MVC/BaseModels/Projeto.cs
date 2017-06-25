@@ -24,5 +24,6 @@ namespace BaseModels
         [Required(ErrorMessage = "*")]
         [Display(Name = "Data de lançamento")]
         public string Lancamento { get; set; }
+        public bool Ativo { get; set; }
     }
 }

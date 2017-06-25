@@ -31,5 +31,11 @@ namespace Web.Models
         }
 
         public System.Data.Entity.DbSet<BaseModels.Categoria> Categorias { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModels.Desenvolvedora> Desenvolvedoras { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModels.Jogo> Jogos { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModels.Projeto> Projetos { get; set; }
     }
 }

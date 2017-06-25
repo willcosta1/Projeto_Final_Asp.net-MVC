@@ -1,14 +1,18 @@
 ﻿@model IEnumerable<BaseModels.Categoria>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Categorias";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Feito!</strong> @TempData["Mensagem"]
+    </div>
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -29,11 +33,14 @@
             @Html.DisplayFor(modelItem => item.Ativo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoriaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoriaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoriaID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.CategoriaID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.CategoriaID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.CategoriaID })
         </td>
     </tr>
 }
 
 </table>
+<p>
+    @Html.ActionLink("Criar nova", "Create", null, new { @class = "btn btn-primary" })
+</p>

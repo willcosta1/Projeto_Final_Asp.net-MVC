@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BaseModels.Projeto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (TempData["Mensagem"] != null)
+{
+    <p class="alert-info">@TempData["Mensagem"]</p>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model._Desenvolvedora.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Jogo.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lancamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item._Desenvolvedora.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Jogo.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lancamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ativo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProjetoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProjetoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProjetoID })
+        </td>
+    </tr>
+}
+
+</table>

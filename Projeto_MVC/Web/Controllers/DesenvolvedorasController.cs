@@ -11,136 +11,129 @@ using Web.Models;
 
 namespace Web.Controllers
 {
-    public class CategoriasController : Controller
+    public class DesenvolvedorasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        // GET: Categorias
+        
         public ActionResult Index()
         {
-            return View(db.Categorias.ToList());
+            return View(db.Desenvolvedoras.ToList());
         }
-
-        // GET: Categorias/Details/5
+        
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Desenvolvedora desenvolvedora = db.Desenvolvedoras.Find(id);
+            if (desenvolvedora == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(desenvolvedora);
         }
 
-        // GET: Categorias/Create
         public ActionResult Create()
         {
             return View();
         }
-
-        // POST: Categorias/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoriaID,Nome,Ativo")] Categoria categoria)
+        public ActionResult Create([Bind(Include = "DesenvolvedoraID,Nome,Pais,Ativo")] Desenvolvedora desenvolvedora)
         {
             if (ModelState.IsValid)
             {
-                try{
-                    if ((db.Categorias.FirstOrDefault(x => x.Nome == categoria.Nome)) == null)
+                try
+                {
+                    if ((db.Desenvolvedoras.FirstOrDefault(x => x.Nome == desenvolvedora.Nome)) == null)
                     {
-                        categoria.Ativo = true;
-                        db.Categorias.Add(categoria);
+                        desenvolvedora.Ativo = true;
+                        db.Desenvolvedoras.Add(desenvolvedora);
                         db.SaveChanges();
                         TempData["Mensagem"] = "Criada com sucesso!";
                         return RedirectToAction("Index");
-                    } else
-                    {
-                        TempData["Mensagem"] = "Categoria já existente!";
-                        return View(categoria);
                     }
-                }catch
+                    else
+                    {
+                        TempData["Mensagem"] = "Desenvolvedora já existente!";
+                        return View(desenvolvedora);
+                    }
+                }
+                catch
                 {
                     TempData["Mensagem"] = "Ocorreu um erro!";
-                    return View(categoria);
+                    return View(desenvolvedora);
                 }
-                
+
             }
 
-            return View(categoria);
+            return View(desenvolvedora);
         }
-
-        // GET: Categorias/Edit/5
+        
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Desenvolvedora desenvolvedora = db.Desenvolvedoras.Find(id);
+            if (desenvolvedora == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(desenvolvedora);
         }
-
-        // POST: Categorias/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoriaID,Nome,Ativo")] Categoria categoria)
+        public ActionResult Edit([Bind(Include = "DesenvolvedoraID,Nome,Pais,Ativo")] Desenvolvedora desenvolvedora)
         {
             if (ModelState.IsValid)
             {
-                try {
-                db.Entry(categoria).State = EntityState.Modified;
-                db.SaveChanges();
-                TempData["Mensagem"] = "Categoria modificada com sucesso!";
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(desenvolvedora).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["Mensagem"] = "Desenvolvedora modificada com sucesso!";
+                    return RedirectToAction("Index");
                 }
                 catch
                 {
                     TempData["Mensagem"] = "Ocorreu um erro!";
-                    return View(categoria);
+                    return View(desenvolvedora);
                 }
             }
-            return View(categoria);
+            return View(desenvolvedora);
         }
-
-        // GET: Categorias/Delete/5
+        
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Desenvolvedora desenvolvedora = db.Desenvolvedoras.Find(id);
+            if (desenvolvedora == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(desenvolvedora);
         }
-
-        // POST: Categorias/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            try {
-            Categoria categoria = db.Categorias.Find(id);
-            categoria.Ativo=false;
-            db.Entry(categoria).State = EntityState.Modified;
-            db.SaveChanges();
-            TempData["Mensagem"] = "Categoria excluida com sucesso!";
-            return RedirectToAction("Index");
+            try
+            {
+                Desenvolvedora desenvolvedora = db.Desenvolvedoras.Find(id);
+                desenvolvedora.Ativo = false;
+                db.Entry(desenvolvedora).State = EntityState.Modified;
+                db.SaveChanges();
+                TempData["Mensagem"] = "Desenvolvedora excluida com sucesso!";
+                return RedirectToAction("Index");
             }
             catch
             {
