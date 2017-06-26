@@ -20,7 +20,22 @@ namespace Web.Controllers
             var jogoes = db.Jogos.Include(j => j._Categoria);
             return View(jogoes.ToList());
         }
-        
+
+
+        public JsonResult ListarJogosPorDesenvolvedora(int id)
+        {
+            var projetos = db.Projetos.Where(p => p.DesenvolvedoraID == id).ToList();
+
+            List<Jogo> jogos = new List<Jogo>();
+
+            foreach (var projeto in projetos)
+            {
+                jogos.Add(projeto._Jogo);
+            }
+
+            return Json(new SelectList(jogos, "JogoID", "Nome"), JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Details(int? id)
         {
             if (id == null)
